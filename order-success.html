@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MY SHOP | Order Confirmed</title>
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FONT AWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="header">
+
+        <div class="logo">
+            MY <span>SHOP</span>
+        </div>
+
+
+        <nav class="nav">
+
+            <a href="index.html">
+                HOME
+            </a>
+
+            <a href="index.html#collection">
+                COLLECTION
+            </a>
+
+            <a href="index.html#about">
+                ABOUT
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <!-- CART -->
+
+            <a href="cart.html" class="cart-link">
+
+                <i class="fa-solid fa-bag-shopping"></i>
+
+                <span
+                    id="cart-count"
+                    class="cart-count"
+                >0</span>
+
+            </a>
+
+
+            <!-- LOGOUT -->
+
+            <button
+                type="button"
+                class="logout-button"
+                onclick="logout()"
+            >
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                LOGOUT
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         ORDER SUCCESS
+    ========================================== -->
+
+    <main class="order-success-page">
+
+        <div class="order-success-card">
+
+
+            <!-- SUCCESS ICON -->
+
+            <div class="success-icon">
+
+                <i class="fa-solid fa-check"></i>
+
+            </div>
+
+
+            <!-- TITLE -->
+
+            <p class="success-label">
+                ORDER CONFIRMED
+            </p>
+
+
+            <h1>
+                Thank You!
+            </h1>
+
+
+            <p class="success-message">
+
+                Your payment was successful and
+                your order has been received.
+
+            </p>
+
+
+
+            <!-- =====================================
+                 ORDER DETAILS
+            ====================================== -->
+
+            <div class="order-details">
+
+
+                <!-- PAYMENT REFERENCE -->
+
+                <div class="order-detail-row">
+
+                    <span>
+                        Payment Reference
+                    </span>
+
+                    <strong id="orderReference">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <!-- CUSTOMER EMAIL -->
+
+                <div class="order-detail-row">
+
+                    <span>
+                        Customer Email
+                    </span>
+
+                    <strong id="customerEmail">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <!-- TOTAL PAID -->
+
+                <div class="order-detail-row">
+
+                    <span>
+                        Total Paid
+                    </span>
+
+                    <strong id="orderTotal">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <!-- DELIVERY -->
+
+                <div class="order-detail-row">
+
+                    <span>
+                        Delivery
+                    </span>
+
+                    <strong>
+                        Standard Delivery
+                    </strong>
+
+                </div>
+
+
+                <!-- DATE -->
+
+                <div class="order-detail-row">
+
+                    <span>
+                        Date
+                    </span>
+
+                    <strong id="orderDate">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 CONTINUE SHOPPING
+            ====================================== -->
+
+            <a
+                href="index.html"
+                class="success-button"
+            >
+
+                CONTINUE SHOPPING
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+
+            MY <span>SHOP</span>
+
+        </div>
+
+
+        <p>
+            Luxury style. Everyday confidence.
+        </p>
+
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#collection">
+                Collection
+            </a>
+
+            <a href="cart.html">
+                Cart
+            </a>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 MY SHOP. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         FIREBASE
+    ========================================== -->
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+
+    <!-- FIREBASE AUTHENTICATION -->
+
+    <script src="auth.js"></script>
+
+
+    <!-- MAIN JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+
+
+    <!-- =========================================
+         ORDER INFORMATION
+    ========================================== -->
+
+    <script>
+
+        /*
+        =========================================
+        GET LAST ORDER
+        =========================================
+        */
+
+        const order =
+            JSON.parse(
+                localStorage.getItem("myShopLastOrder")
+            );
+
+
+        /*
+        =========================================
+        PAYMENT REFERENCE
+        =========================================
+        */
+
+        if (order) {
+
+            const reference =
+                order.reference ||
+                order.paymentReference ||
+                order.transactionReference ||
+                order.referenceNumber;
+
+
+            if (reference) {
+
+                document.getElementById(
+                    "orderReference"
+                ).textContent = reference;
+
+            }
+
+        }
+
+
+        /*
+        =========================================
+        TOTAL PAID
+        =========================================
+        */
+
+        if (order && order.total !== undefined) {
+
+            document.getElementById(
+                "orderTotal"
+            ).textContent =
+                "₦" +
+                Number(order.total).toLocaleString();
+
+        }
+
+
+        /*
+        =========================================
+        ORDER DATE
+        =========================================
+        */
+
+        if (order && order.date) {
+
+            const orderDate =
+                new Date(order.date);
+
+
+            document.getElementById(
+                "orderDate"
+            ).textContent =
+                orderDate.toLocaleString();
+
+        }
+
+
+        /*
+        =========================================
+        FIREBASE CUSTOMER EMAIL
+        =========================================
+
+        IMPORTANT:
+        Firebase authentication can take a moment
+        to restore the signed-in user.
+
+        onAuthStateChanged waits for Firebase.
+        =========================================
+        */
+
+        auth.onAuthStateChanged(function (user) {
+
+            if (user) {
+
+                document.getElementById(
+                    "customerEmail"
+                ).textContent =
+                    user.email || "—";
+
+            }
+
+        });
+
+
+        /*
+        =========================================
+        CART SHOULD BE EMPTY AFTER PAYMENT
+        =========================================
+        */
+
+        localStorage.removeItem("cart");
+
+
+        const cartCount =
+            document.getElementById("cart-count");
+
+
+        if (cartCount) {
+
+            cartCount.textContent = "0";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

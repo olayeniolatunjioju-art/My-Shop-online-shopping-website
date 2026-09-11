@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>my shop</title>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "YOUR_KEY",
+      authDomain: "YOUR_DOMAIN",
+      projectId: "YOUR_ID",
+      appId: "YOUR_APP_ID"
+    };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+<body>
+
+  <i class="fa-solid fa-cart-shopping" style="font-size:40px;"></i>
+    <h1>🛍 Welcome to My Shop</h1>
+<p id="user"></p>
+<button onclick="logout()">Logout</button>
+
+
+<script>
+// check if user is logged in
+firebase.auth().onAuthStateChanged(user => {
+  if (!user) {
+    window.location.href = "login.html";
+  } else {
+      document.getElementById("user").innerText =
+      "Logged in as: " + user.email;
+  }
+});
+
+// logout
+function logout() {
+  firebase.auth().signOut().then(() => {
+    window.location.href = "login.html";
+  });
+}
+</script>
+   
+</body>
+</html>

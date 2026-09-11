@@ -1,0 +1,498 @@
+/* ========================================
+   MY SHOP — LUXURY LOGIN PAGE
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080808;
+    color: #ffffff;
+}
+
+
+/* ========================================
+   LOGIN PAGE
+======================================== */
+
+.login-page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #292929 0%,
+            #101010 42%,
+            #050505 100%
+        );
+}
+
+
+/* ========================================
+   BRAND
+======================================== */
+
+.login-brand {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.login-brand .logo {
+    font-size: 30px;
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    color: #ffffff;
+}
+
+.login-brand .logo span {
+    color: #c9a227;
+}
+
+.login-brand p {
+    margin-top: 9px;
+
+    color: #888888;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+
+/* ========================================
+   LOGIN CARD
+======================================== */
+
+.login-card {
+    width: 100%;
+    max-width: 440px;
+
+    padding: 45px 42px;
+
+    position: relative;
+
+    background: #111111;
+
+    border: 1px solid #2d2d2d;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.65);
+}
+
+
+/* GOLD TOP LINE */
+
+.login-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: #c9a227;
+}
+
+
+/* ========================================
+   LOGIN HEADING
+======================================== */
+
+.login-heading > p:first-child {
+    color: #c9a227;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+.login-heading h1 {
+    font-size: 36px;
+
+    line-height: 1.15;
+
+    font-weight: 700;
+
+    color: #ffffff;
+}
+
+.login-heading h1 span {
+    color: #c9a227;
+}
+
+
+/* GOLD LINE */
+
+.gold-line {
+    width: 50px;
+    height: 2px;
+
+    background: #c9a227;
+
+    margin: 22px 0;
+}
+
+
+/* SUBTITLE */
+
+.login-subtitle {
+    color: #888888;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+
+/* ========================================
+   INPUT GROUP
+======================================== */
+
+.input-group {
+    margin-bottom: 22px;
+}
+
+.input-group label {
+    display: block;
+
+    color: #aaaaaa;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 9px;
+}
+
+
+/* ========================================
+   INPUT BOX
+======================================== */
+
+.input-box {
+    width: 100%;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+
+    background: #090909;
+
+    border: 1px solid #333333;
+
+    transition: 0.3s ease;
+}
+
+
+/* INPUT FOCUS */
+
+.input-box:focus-within {
+    border-color: #c9a227;
+
+    box-shadow:
+        0 0 0 1px rgba(201, 162, 39, 0.15);
+}
+
+
+/* INPUT ICON */
+
+.input-box > i {
+    width: 48px;
+
+    text-align: center;
+
+    color: #777777;
+
+    font-size: 14px;
+}
+
+
+/* INPUT */
+
+.input-box input {
+    flex: 1;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 14px;
+}
+
+.input-box input::placeholder {
+    color: #555555;
+}
+
+
+/* ========================================
+   PASSWORD TOGGLE
+======================================== */
+
+.password-toggle {
+    width: 48px;
+    height: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    color: #777777;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.password-toggle:hover {
+    color: #c9a227;
+}
+
+
+/* ========================================
+   LOGIN BUTTON
+======================================== */
+
+.login-button {
+    width: 100%;
+    height: 54px;
+
+    border: none;
+
+    background: #c9a227;
+
+    color: #080808;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    margin-top: 5px;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.login-button i {
+    margin-left: 10px;
+}
+
+.login-button:hover {
+    background: #e1bd3a;
+
+    transform: translateY(-2px);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   ERROR MESSAGE
+======================================== */
+
+#error {
+    min-height: 18px;
+
+    margin-top: 15px;
+
+    color: #e57373;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+}
+
+
+/* ========================================
+   DIVIDER
+======================================== */
+
+.divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 25px 0;
+
+    color: #555555;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.divider span {
+    flex: 1;
+
+    height: 1px;
+
+    background: #292929;
+}
+
+
+/* ========================================
+   GOOGLE BUTTON
+======================================== */
+
+.google-btn {
+    width: 100%;
+    height: 50px;
+
+    border: 1px solid #333333;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+.google-btn i {
+    margin-right: 10px;
+
+    font-size: 14px;
+}
+
+.google-btn:hover {
+    border-color: #c9a227;
+
+    color: #c9a227;
+
+    background: rgba(201, 162, 39, 0.04);
+}
+
+
+/* ========================================
+   LOGIN FOOTER
+======================================== */
+
+.login-footer {
+    text-align: center;
+
+    color: #555555;
+
+    font-size: 11px;
+
+    margin-top: 25px;
+}
+
+.login-footer strong {
+    color: #c9a227;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 500px) {
+
+    .login-page {
+        padding: 25px 15px;
+    }
+
+    .login-brand {
+        margin-bottom: 22px;
+    }
+
+    .login-brand .logo {
+        font-size: 25px;
+    }
+
+    .login-card {
+        padding: 35px 25px;
+    }
+
+    .login-heading h1 {
+        font-size: 30px;
+    }
+
+    .login-subtitle {
+        font-size: 12px;
+    }
+
+    .input-box {
+        height: 50px;
+    }
+
+    .login-button {
+        height: 52px;
+    }
+
+}
+
+
+/* ========================================
+   VERY SMALL SCREENS
+======================================== */
+
+@media (max-width: 360px) {
+
+    .login-card {
+        padding: 30px 20px;
+    }
+
+    .login-heading h1 {
+        font-size: 27px;
+    }
+
+    .login-brand .logo {
+        font-size: 23px;
+    }
+
+}

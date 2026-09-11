@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MY SHOP | Login</title>
+
+    <link rel="stylesheet" href="login.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+    <script>
+        // =========================================
+        // MY SHOP — FIREBASE CONFIGURATION
+        // =========================================
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCj9u6Kl8L6o3WAH5ryDuY1OFg8CsHqLCQ",
+            authDomain: "my-login-app-1bf2d.firebaseapp.com",
+            projectId: "my-login-app-1bf2d",
+            storageBucket: "my-login-app-1bf2d.firebasestorage.app",
+            messagingSenderId: "284334674092",
+            appId: "1:284334674092:web:33b701ea3c2a4c75178f09",
+            measurementId: "G-QM729YSRDR"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+    </script>
+</head>
+
+<body>
+
+    <main class="login-page">
+
+        <!-- BRAND -->
+        <div class="login-brand">
+            <div class="logo">
+                <span>MY</span> SHOP
+            </div>
+
+            <p>YOUR STYLE. YOUR CHOICE.</p>
+        </div>
+
+
+        <!-- LOGIN CARD -->
+        <div class="login-card">
+
+            <!-- HEADING -->
+            <div class="login-heading">
+
+                <p id="formMode">WELCOME BACK</p>
+
+                <h1>
+                    Sign in to<br>
+                    <span>MY SHOP.</span>
+                </h1>
+
+                <div class="gold-line"></div>
+
+                <p class="login-subtitle">
+                    Enter your details to continue shopping.
+                </p>
+
+            </div>
+
+
+            <!-- LOGIN FORM -->
+            <form onsubmit="handleAuth(event)">
+
+                <!-- EMAIL -->
+                <div class="input-group">
+
+                    <label for="email">
+                        EMAIL
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-regular fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+                <div class="input-group">
+
+                    <label for="password">
+                        PASSWORD
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required>
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            onclick="togglePassword()">
+
+                            <i
+                                class="fa-regular fa-eye"
+                                id="eyeIcon">
+                            </i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+                <button
+                    type="submit"
+                    class="login-button"
+                    id="submitButton">
+
+                    SIGN IN
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+
+            <!-- ERROR MESSAGE -->
+            <p id="error"></p>
+
+
+            <!-- SWITCH SIGN IN / SIGN UP -->
+            <div class="switch-auth">
+
+                <span id="switchText">
+                    Don't have an account?
+                </span>
+
+                <button
+                    type="button"
+                    onclick="toggleAuthMode()"
+                    id="switchButton">
+
+                    CREATE ACCOUNT
+
+                </button>
+
+            </div>
+
+
+            <!-- DIVIDER -->
+            <div class="divider">
+
+                <span></span>
+
+                OR
+
+                <span></span>
+
+            </div>
+
+
+            <!-- GOOGLE -->
+            <button
+                class="google-btn"
+                onclick="googleLogin()">
+
+                <i class="fa-brands fa-google"></i>
+
+                CONTINUE WITH GOOGLE
+
+            </button>
+
+
+            <!-- FOOTER -->
+            <p class="login-footer">
+
+                Secure access to
+                <strong>MY SHOP</strong>
+
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        // =========================================
+        // AUTH MODE
+        // =========================================
+
+        let isSignUp = false;
+
+
+        // =========================================
+        // PASSWORD SHOW / HIDE
+        // =========================================
+
+        function togglePassword() {
+
+            const password =
+                document.getElementById("password");
+
+            const eyeIcon =
+                document.getElementById("eyeIcon");
+
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+                eyeIcon.classList.remove("fa-eye");
+
+                eyeIcon.classList.add("fa-eye-slash");
+
+            } else {
+
+                password.type = "password";
+
+                eyeIcon.classList.remove("fa-eye-slash");
+
+                eyeIcon.classList.add("fa-eye");
+
+            }
+
+        }
+
+
+        // =========================================
+        // SWITCH SIGN IN / CREATE ACCOUNT
+        // =========================================
+
+        function toggleAuthMode() {
+
+            isSignUp = !isSignUp;
+
+
+            const formMode =
+                document.getElementById("formMode");
+
+            const heading =
+                document.querySelector(".login-heading h1");
+
+            const subtitle =
+                document.querySelector(".login-subtitle");
+
+            const submitButton =
+                document.getElementById("submitButton");
+
+            const switchText =
+                document.getElementById("switchText");
+
+            const switchButton =
+                document.getElementById("switchButton");
+
+            const error =
+                document.getElementById("error");
+
+
+            error.textContent = "";
+
+
+            if (isSignUp) {
+
+                formMode.textContent =
+                    "WELCOME TO MY SHOP";
+
+                heading.innerHTML =
+                    'Create your<br><span>MY SHOP.</span>';
+
+                subtitle.textContent =
+                    "Create an account to start shopping.";
+
+                submitButton.innerHTML =
+                    'CREATE ACCOUNT <i class="fa-solid fa-arrow-right"></i>';
+
+                switchText.textContent =
+                    "Already have an account?";
+
+                switchButton.textContent =
+                    "SIGN IN";
+
+            } else {
+
+                formMode.textContent =
+                    "WELCOME BACK";
+
+                heading.innerHTML =
+                    'Sign in to<br><span>MY SHOP.</span>';
+
+                subtitle.textContent =
+                    "Enter your details to continue shopping.";
+
+                submitButton.innerHTML =
+                    'SIGN IN <i class="fa-solid fa-arrow-right"></i>';
+
+                switchText.textContent =
+                    "Don't have an account?";
+
+                switchButton.textContent =
+                    "CREATE ACCOUNT";
+
+            }
+
+        }
+
+
+        // =========================================
+        // SIGN IN / SIGN UP
+        // =========================================
+
+        function handleAuth(event) {
+
+            event.preventDefault();
+
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            const error =
+                document.getElementById("error");
+
+            const submitButton =
+                document.getElementById("submitButton");
+
+
+            error.textContent = "";
+
+
+            if (isSignUp) {
+
+                // CREATE ACCOUNT
+
+                submitButton.disabled = true;
+
+                submitButton.innerHTML =
+                    'CREATING ACCOUNT...';
+
+
+                auth.createUserWithEmailAndPassword(
+                    email,
+                    password
+                )
+
+                .then(() => {
+
+                    localStorage.setItem(
+                        "loggedIn",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "index.html";
+
+                })
+
+                .catch((error) => {
+
+                    showFirebaseError(error);
+
+                    submitButton.disabled = false;
+
+                    submitButton.innerHTML =
+                        'CREATE ACCOUNT <i class="fa-solid fa-arrow-right"></i>';
+
+                });
+
+
+            } else {
+
+                // SIGN IN
+
+                submitButton.disabled = true;
+
+                submitButton.innerHTML =
+                    'SIGNING IN...';
+
+
+                auth.signInWithEmailAndPassword(
+                    email,
+                    password
+                )
+
+                .then(() => {
+
+                    localStorage.setItem(
+                        "loggedIn",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "index.html";
+
+                })
+
+                .catch((error) => {
+
+                    showFirebaseError(error);
+
+                    submitButton.disabled = false;
+
+                    submitButton.innerHTML =
+                        'SIGN IN <i class="fa-solid fa-arrow-right"></i>';
+
+                });
+
+            }
+
+        }
+
+
+        // =========================================
+        // GOOGLE LOGIN
+        // =========================================
+
+        function googleLogin() {
+
+            const provider =
+                new firebase.auth.GoogleAuthProvider();
+
+            const error =
+                document.getElementById("error");
+
+
+            error.textContent = "";
+
+
+            auth.signInWithPopup(provider)
+
+            .then(() => {
+
+                localStorage.setItem(
+                    "loggedIn",
+                    "true"
+                );
+
+                window.location.href =
+                    "index.html";
+
+            })
+
+            .catch((error) => {
+
+                showFirebaseError(error);
+
+            });
+
+        }
+
+
+        // =========================================
+        // FIREBASE ERROR MESSAGES
+        // =========================================
+
+        function showFirebaseError(error) {
+
+            const errorElement =
+                document.getElementById("error");
+
+
+            switch (error.code) {
+
+                case "auth/email-already-in-use":
+
+                    errorElement.textContent =
+                        "This email already has an account.";
+
+                    break;
+
+
+                case "auth/invalid-email":
+
+                    errorElement.textContent =
+                        "Please enter a valid email address.";
+
+                    break;
+
+
+                case "auth/weak-password":
+
+                    errorElement.textContent =
+                        "Password should be at least 6 characters.";
+
+                    break;
+
+
+                case "auth/user-not-found":
+
+                case "auth/wrong-password":
+
+                case "auth/invalid-credential":
+
+                    errorElement.textContent =
+                        "Incorrect email or password.";
+
+                    break;
+
+
+                case "auth/popup-closed-by-user":
+
+                    errorElement.textContent =
+                        "Google sign-in was cancelled.";
+
+                    break;
+
+
+                default:
+
+                    errorElement.textContent =
+                        error.message;
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

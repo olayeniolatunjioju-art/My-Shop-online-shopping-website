@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MY SHOP | Luxury Collection</title>
+
+
+    <!-- MAIN CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         PAGE LOADING SCREEN
+    ========================================== -->
+
+    <div id="page-loader">
+
+        <div class="loader-content">
+
+            <div class="loader-logo">
+                MY <span>SHOP</span>
+            </div>
+
+            <div class="loader-spinner"></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            MY <span>SHOP</span>
+
+        </div>
+
+
+        <nav class="nav">
+
+            <a href="index.html" class="active">
+                HOME
+            </a>
+
+            <a href="#collection">
+                COLLECTION
+            </a>
+
+            <a href="#about">
+                ABOUT
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+
+            <!-- CART -->
+
+            <a href="cart.html" class="cart-link">
+
+                <i class="fa-solid fa-bag-shopping"></i>
+
+                <span id="cart-count" class="cart-count">
+                    0
+                </span>
+
+            </a>
+
+
+            <!-- LOGOUT -->
+
+            <button
+                type="button"
+                class="logout-button"
+                onclick="logout()"
+            >
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                LOGOUT
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO SECTION
+    ========================================== -->
+
+    <section class="hero">
+
+        <div class="hero-overlay"></div>
+
+
+        <div class="hero-content">
+
+            <p class="hero-subtitle">
+                WELCOME TO MY SHOP
+            </p>
+
+
+            <h1>
+                STYLE THAT
+                <span>STANDS OUT.</span>
+            </h1>
+
+
+            <p class="hero-text">
+
+                Discover a carefully selected collection
+                of fashion, footwear and accessories
+                designed for your everyday style.
+
+            </p>
+
+
+            <a
+                href="#collection"
+                class="hero-button"
+            >
+
+                SHOP COLLECTION
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         COLLECTION SECTION
+    ========================================== -->
+
+    <section
+        id="collection"
+        class="collection"
+    >
+
+
+        <div class="section-heading">
+
+            <p>
+                OUR COLLECTION
+            </p>
+
+            <h2>
+                SELECTED FOR YOU
+            </h2>
+
+            <div class="heading-line"></div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             PRODUCTS
+        ====================================== -->
+
+        <div class="products">
+
+
+            <!-- =================================
+                 SHOE
+            ================================== -->
+
+            <div class="product-card">
+
+
+                <div class="product-image">
+
+                    <img
+                        src="./images/images.jpg"
+                        alt="Classic Shoe"
+                    >
+
+
+                    <div class="product-overlay">
+
+                        <a
+                            href="product.html?product=shoe"
+                            class="view-product"
+                        >
+
+                            VIEW PRODUCT
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <p class="product-category">
+                        FOOTWEAR
+                    </p>
+
+
+                    <h3>
+                        Classic Shoe
+                    </h3>
+
+
+                    <div class="product-bottom">
+
+                        <span class="product-price">
+                            ₦20
+                        </span>
+
+
+                        <a
+                            href="product.html?product=shoe"
+                            class="product-cart"
+                            title="View product"
+                        >
+
+                            <i class="fa-solid fa-bag-shopping"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 CAP
+            ================================== -->
+
+            <div class="product-card">
+
+
+                <div class="product-image">
+
+                    <img
+                        src="./images/cap2.jpg"
+                        alt="Premium Cap"
+                    >
+
+
+                    <div class="product-overlay">
+
+                        <a
+                            href="product.html?product=cap"
+                            class="view-product"
+                        >
+
+                            VIEW PRODUCT
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <p class="product-category">
+                        ACCESSORIES
+                    </p>
+
+
+                    <h3>
+                        Premium Cap
+                    </h3>
+
+
+                    <div class="product-bottom">
+
+                        <span class="product-price">
+                            ₦10
+                        </span>
+
+
+                        <a
+                            href="product.html?product=cap"
+                            class="product-cart"
+                            title="View product"
+                        >
+
+                            <i class="fa-solid fa-bag-shopping"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 ANKARA
+            ================================== -->
+
+            <div class="product-card">
+
+
+                <div class="product-image">
+
+                    <img
+                        src="./images/ankara.jpg"
+                        alt="Luxury Ankara"
+                    >
+
+
+                    <div class="product-overlay">
+
+                        <a
+                            href="product.html?product=ankara"
+                            class="view-product"
+                        >
+
+                            VIEW PRODUCT
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <p class="product-category">
+                        FASHION
+                    </p>
+
+
+                    <h3>
+                        Luxury Ankara
+                    </h3>
+
+
+                    <div class="product-bottom">
+
+                        <span class="product-price">
+                            ₦35
+                        </span>
+
+
+                        <a
+                            href="product.html?product=ankara"
+                            class="product-cart"
+                            title="View product"
+                        >
+
+                            <i class="fa-solid fa-bag-shopping"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         ABOUT SECTION
+    ========================================== -->
+
+    <section
+        id="about"
+        class="about"
+    >
+
+        <div class="about-content">
+
+
+            <p class="section-label">
+                ABOUT MY SHOP
+            </p>
+
+
+            <h2>
+                SIMPLE.
+                <span>CLASSY.</span>
+                DIFFERENT.
+            </h2>
+
+
+            <p>
+
+                MY SHOP is built around a simple idea:
+                make quality style easy to discover.
+
+                From footwear to accessories and
+                fashion pieces, every item is selected
+                to give your wardrobe a confident finish.
+
+            </p>
+
+
+            <a
+                href="#collection"
+                class="about-button"
+            >
+
+                EXPLORE COLLECTION
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+
+            MY <span>SHOP</span>
+
+        </div>
+
+
+        <p>
+            Luxury style. Everyday confidence.
+        </p>
+
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#collection">
+                Collection
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="cart.html">
+                Cart
+            </a>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 MY SHOP. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         FIREBASE
+    ========================================== -->
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+
+    <!-- =========================================
+         FIREBASE AUTHENTICATION
+    ========================================== -->
+
+    <script src="auth.js"></script>
+
+
+    <!-- =========================================
+         MAIN JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+
+
+    <!-- =========================================
+         PAGE LOADER
+    ========================================== -->
+
+    <script>
+
+        /*
+        =========================================
+        HIDE LOADER AFTER PAGE LOAD
+        =========================================
+        */
+
+        window.addEventListener("load", function () {
+
+            const loader =
+                document.getElementById("page-loader");
+
+            if (loader) {
+
+                loader.style.opacity = "0";
+
+                setTimeout(function () {
+
+                    loader.style.display = "none";
+
+                }, 400);
+
+            }
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
