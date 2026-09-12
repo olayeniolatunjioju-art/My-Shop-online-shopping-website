@@ -2,335 +2,174 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>MY SHOP | Product Details</title>
 
-
-    <!-- MAIN CSS -->
-
     <link rel="stylesheet" href="style.css">
 
-
-    <!-- FONT AWESOME -->
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
-
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-
 
 <body>
 
-
-    <!-- =========================================
-         HEADER
-    ========================================== -->
+    <!-- ================= HEADER ================= -->
 
     <header class="header">
 
         <div class="logo">
-
-            MY <span>SHOP</span>
-
+            <span>MY</span> SHOP
         </div>
-
 
         <nav class="nav">
 
-            <a href="index.html">
-                HOME
-            </a>
+            <a href="index.html">HOME</a>
 
-            <a href="index.html#collection">
-                COLLECTION
-            </a>
-
-            <a href="index.html#about">
-                ABOUT
-            </a>
-
-        </nav>
-
-
-        <div class="header-actions">
-
-
-            <!-- CART -->
+            <a href="index.html#collection">COLLECTION</a>
 
             <a href="cart.html" class="cart-link">
-
                 <i class="fa-solid fa-bag-shopping"></i>
-
-                <span
-                    id="cart-count"
-                    class="cart-count"
-                >
-                    0
-                </span>
-
+                <span id="cart-count" class="cart-count">0</span>
             </a>
 
-
-            <!-- LOGOUT -->
-
-            <button
-                type="button"
-                class="logout-button"
-                onclick="logout()"
-            >
-
-                <i class="fa-solid fa-right-from-bracket"></i>
-
+            <button type="button"
+                class="logout-btn"
+                onclick="logout()">
                 LOGOUT
-
             </button>
 
-        </div>
+        </nav>
 
     </header>
 
 
+    <!-- ================= PRODUCT DETAILS ================= -->
 
-    <!-- =========================================
-         PRODUCT DETAILS
-    ========================================== -->
+    <main class="product-details-page">
 
-    <main class="product-details">
+        <div class="product-details">
 
+            <!-- PRODUCT IMAGE -->
 
-        <!-- PRODUCT IMAGE -->
+            <div class="product-details-image">
 
-        <div class="product-details-image">
-
-            <img
-                id="productImage"
-                src="./images/images.jpg"
-                alt="Product"
-            >
-
-        </div>
-
-
-
-        <!-- PRODUCT INFORMATION -->
-
-        <div class="product-details-info">
-
-
-            <p
-                id="productCategory"
-                class="product-category"
-            >
-                FOOTWEAR
-            </p>
-
-
-            <h1 id="productName">
-                Classic Shoe
-            </h1>
-
-
-            <div
-                id="productPrice"
-                class="product-details-price"
-            >
-                ₦20
-            </div>
-
-
-            <div class="product-details-line"></div>
-
-
-            <p
-                id="productDescription"
-                class="product-description"
-            >
-                A stylish and comfortable shoe designed
-                to give your everyday outfit a clean and
-                confident finish.
-            </p>
-
-
-
-            <!-- =====================================
-                 SIZE
-            ====================================== -->
-
-            <div
-                id="sizeSection"
-                class="size-section"
-            >
-
-                <p>
-                    SIZE
-                </p>
-
-
-                <div
-                    id="sizeOptions"
-                    class="size-options"
-                ></div>
+                <img
+                    id="productImage"
+                    src="./images/images.jpg"
+                    alt="Product">
 
             </div>
 
 
+            <!-- PRODUCT INFORMATION -->
 
-            <!-- =====================================
-                 QUANTITY
-            ====================================== -->
+            <div class="product-details-info">
 
-            <div class="details-quantity-section">
+                <p id="productCategory"
+                    class="product-category">
+                    FOOTWEAR
+                </p>
 
-                <p>
-                    QUANTITY
+                <h1 id="productName">
+                    Classic Shoe
+                </h1>
+
+                <p id="productPrice"
+                    class="product-details-price">
+                    ₦20
+                </p>
+
+                <p id="productDescription"
+                    class="product-description">
+                    A stylish and comfortable shoe designed
+                    to give your everyday outfit a clean and
+                    confident finish.
                 </p>
 
 
-                <div class="details-quantity">
+                <!-- SIZE -->
 
-                    <button
-                        type="button"
-                        onclick="decreaseQuantity()"
-                    >
+                <div id="sizeSection"
+                    class="size-section">
 
-                        <i class="fa-solid fa-minus"></i>
+                    <h3>
+                        SELECT SIZE
+                    </h3>
 
-                    </button>
-
-
-                    <span id="quantity">
-                        1
-                    </span>
-
-
-                    <button
-                        type="button"
-                        onclick="increaseQuantity()"
-                    >
-
-                        <i class="fa-solid fa-plus"></i>
-
-                    </button>
+                    <div id="sizeOptions"
+                        class="size-options">
+                    </div>
 
                 </div>
 
+
+                <!-- QUANTITY -->
+
+                <div class="details-quantity">
+
+                    <h3>
+                        QUANTITY
+                    </h3>
+
+                    <div class="quantity-control">
+
+                        <button
+                            type="button"
+                            onclick="decreaseQuantity()">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+
+                        <span id="quantity">
+                            1
+                        </span>
+
+                        <button
+                            type="button"
+                            onclick="increaseQuantity()">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADD TO CART -->
+
+                <button
+                    type="button"
+                    class="details-add-cart"
+                    onclick="addProductToCart()">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    ADD TO CART
+
+                </button>
+
             </div>
-
-
-
-            <!-- =====================================
-                 ADD TO CART
-            ====================================== -->
-
-            <button
-                type="button"
-                class="details-add-cart"
-                onclick="addProductToCart()"
-            >
-
-                <i class="fa-solid fa-bag-shopping"></i>
-
-                ADD TO CART
-
-            </button>
-
-
-            <!-- MESSAGE -->
-
-            <p
-                id="cartMessage"
-                class="cart-message"
-            ></p>
-
 
         </div>
 
     </main>
 
 
-
-    <!-- =========================================
-         FOOTER
-    ========================================== -->
-
-    <footer class="footer">
-
-        <div class="footer-logo">
-
-            MY <span>SHOP</span>
-
-        </div>
-
-
-        <p>
-            Luxury style. Everyday confidence.
-        </p>
-
-
-        <div class="footer-links">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="index.html#collection">
-                Collection
-            </a>
-
-            <a href="cart.html">
-                Cart
-            </a>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 MY SHOP. All Rights Reserved.
-            </p>
-
-        </div>
-
-    </footer>
-
-
-
-    <!-- =========================================
-         FIREBASE
-    ========================================== -->
+    <!-- ================= FIREBASE ================= -->
 
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
-
-    <!-- FIREBASE AUTH -->
-
     <script src="auth.js"></script>
-
-
-    <!-- MAIN SCRIPT -->
 
     <script src="script.js"></script>
 
 
-
-    <!-- =========================================
-         PRODUCT JAVASCRIPT
-    ========================================== -->
+    <!-- ================= PRODUCT SCRIPT ================= -->
 
     <script>
-
-        /* =========================================
-           PRODUCT DATA
-        ========================================= */
 
         const productData = {
 
@@ -383,7 +222,7 @@
 
                 price: 35,
 
-                image: "./images/ankara.jpg",
+                image: "./images/Ankara.jpg",
 
                 description:
                     "A beautiful Ankara fabric selected for its bold style, elegant appearance and timeless fashion appeal.",
@@ -402,204 +241,131 @@
         };
 
 
-
-        /* =========================================
-           GET PRODUCT FROM URL
-        ========================================== */
+        /* ================= GET PRODUCT ================= */
 
         const urlParams =
             new URLSearchParams(window.location.search);
 
-
-        const productKey =
+        const productType =
             urlParams.get("product") || "shoe";
 
-
         const product =
-            productData[productKey] || productData.shoe;
+            productData[productType] || productData.shoe;
 
 
+        /* ================= DISPLAY PRODUCT ================= */
 
-        /* =========================================
-           DISPLAY PRODUCT
-        ========================================== */
+        document.getElementById("productImage").src =
+            product.image;
 
-        document.getElementById("productName")
-            .textContent = product.name;
+        document.getElementById("productImage").alt =
+            product.name;
 
+        document.getElementById("productName").textContent =
+            product.name;
 
-        document.getElementById("productCategory")
-            .textContent = product.category;
+        document.getElementById("productCategory").textContent =
+            product.category;
 
-
-        document.getElementById("productPrice")
-            .textContent =
+        document.getElementById("productPrice").textContent =
             "₦" + product.price.toLocaleString();
 
-
-        document.getElementById("productDescription")
-            .textContent = product.description;
-
-
-        document.getElementById("productImage")
-            .src = product.image;
+        document.getElementById("productDescription").textContent =
+            product.description;
 
 
-        document.getElementById("productImage")
-            .alt = product.name;
-
-
-
-        /* =========================================
-           SIZE SECTION
-        ========================================== */
+        /* ================= SIZE ================= */
 
         const sizeSection =
             document.getElementById("sizeSection");
-
 
         const sizeOptions =
             document.getElementById("sizeOptions");
 
 
-        let selectedSize = null;
+        if (product.sizes) {
 
-
-
-        /*
-        If the product has sizes,
-        show the size section.
-
-        If the product has NO sizes,
-        hide the entire size section.
-        */
-
-        if (product.sizes && product.sizes.length > 0) {
-
-            sizeSection.style.display = "block";
-
+            sizeOptions.innerHTML = "";
 
             product.sizes.forEach(function (size, index) {
 
                 const button =
                     document.createElement("button");
 
-
                 button.type = "button";
 
-                button.className = "size-btn";
+                button.className = "size-button";
 
                 button.textContent = size;
 
+                button.onclick = function () {
 
-                button.addEventListener(
-                    "click",
-                    function () {
+                    document
+                        .querySelectorAll(".size-button")
+                        .forEach(function (btn) {
 
-                        document
-                            .querySelectorAll(".size-btn")
-                            .forEach(function (btn) {
+                            btn.classList.remove("active");
 
-                                btn.classList.remove("selected");
+                        });
 
-                            });
-
-
-                        button.classList.add("selected");
-
-
-                        selectedSize = size;
-
-                    }
-                );
-
-
-                sizeOptions.appendChild(button);
-
-
-                /*
-                Automatically select
-                the first size.
-                */
-
-                if (index === 0) {
-
-                    button.classList.add("selected");
+                    button.classList.add("active");
 
                     selectedSize = size;
 
-                }
+                };
+
+                sizeOptions.appendChild(button);
 
             });
 
         } else {
 
-            /*
-            CAP HAS NO SIZE
-            */
-
             sizeSection.style.display = "none";
-
-            selectedSize = null;
 
         }
 
 
+        /* ================= QUANTITY ================= */
 
-        /* =========================================
-           QUANTITY
-        ========================================== */
+        let currentQuantity = 1;
 
-        let productQuantity = 1;
+        let selectedSize = null;
 
 
         function increaseQuantity() {
 
-            productQuantity++;
+            currentQuantity++;
 
             document.getElementById("quantity")
-                .textContent = productQuantity;
+                .textContent = currentQuantity;
 
         }
 
 
         function decreaseQuantity() {
 
-            if (productQuantity > 1) {
+            if (currentQuantity > 1) {
 
-                productQuantity--;
+                currentQuantity--;
+
+                document.getElementById("quantity")
+                    .textContent = currentQuantity;
 
             }
-
-
-            document.getElementById("quantity")
-                .textContent = productQuantity;
 
         }
 
 
-
-        /* =========================================
-           ADD PRODUCT TO CART
-        ========================================== */
+        /* ================= ADD TO CART ================= */
 
         function addProductToCart() {
 
-            /*
-            Require size only when
-            the product has sizes.
-            */
-
             if (
                 product.sizes &&
-                product.sizes.length > 0 &&
                 !selectedSize
             ) {
 
-                showCartMessage(
-                    "Please select a size.",
-                    true
-                );
+                alert("Please select a size.");
 
                 return;
 
@@ -611,11 +377,6 @@
                     localStorage.getItem("cart")
                 ) || [];
 
-
-            /*
-            Check if same product + same size
-            already exists.
-            */
 
             const existingItem =
                 cart.find(function (item) {
@@ -630,9 +391,8 @@
 
             if (existingItem) {
 
-                existingItem.quantity =
-                    (Number(existingItem.quantity) || 1)
-                    + productQuantity;
+                existingItem.quantity +=
+                    currentQuantity;
 
             } else {
 
@@ -646,7 +406,7 @@
 
                     size: selectedSize,
 
-                    quantity: productQuantity
+                    quantity: currentQuantity
 
                 });
 
@@ -659,108 +419,21 @@
             );
 
 
-            /*
-            Update cart badge
-            */
+            if (typeof updateCartCount === "function") {
 
-            updateProductCartCount();
+                updateCartCount();
+
+            }
 
 
-            /*
-            Show success message
-            */
-
-            showCartMessage(
-                "Added to cart successfully!",
-                false
+            alert(
+                product.name +
+                " added to your cart."
             );
 
         }
 
-
-
-        /* =========================================
-           UPDATE CART BADGE
-        ========================================== */
-
-        function updateProductCartCount() {
-
-            const cart =
-                JSON.parse(
-                    localStorage.getItem("cart")
-                ) || [];
-
-
-            let count = 0;
-
-
-            cart.forEach(function (item) {
-
-                count +=
-                    Number(item.quantity) || 1;
-
-            });
-
-
-            const cartCount =
-                document.getElementById("cart-count");
-
-
-            if (cartCount) {
-
-                cartCount.textContent = count;
-
-            }
-
-        }
-
-
-
-        /* =========================================
-           CART MESSAGE
-        ========================================== */
-
-        function showCartMessage(
-            message,
-            isError
-        ) {
-
-            const messageElement =
-                document.getElementById("cartMessage");
-
-
-            messageElement.textContent = message;
-
-
-            if (isError) {
-
-                messageElement.classList.add("error");
-
-            } else {
-
-                messageElement.classList.remove("error");
-
-            }
-
-
-            setTimeout(function () {
-
-                messageElement.textContent = "";
-
-            }, 2500);
-
-        }
-
-
-
-        /* =========================================
-           INITIAL CART COUNT
-        ========================================== */
-
-        updateProductCartCount();
-
     </script>
-
 
 </body>
 
